@@ -21,6 +21,7 @@ func getJSON(url, APIToken string, target interface{}) error {
 	req.Header.Set("Authorization", "bearer "+APIToken)
 	r, err := c.Do(req)
 	if err != nil {
+		fmt.Errorf("API Error: %q", err)
 		return err
 	}
 	defer r.Body.Close()
